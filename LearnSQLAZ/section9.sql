@@ -75,8 +75,161 @@ delete from nom_table
 delete from facts
 	where name="brazil"
 
+# ajouter des colonnes
 
-	
+ALTER table
+
+alter table nom_table
+add nom_colonne dadatype;
+
+
+alter table facts
+add awesomeness integer;
+
+alter table facts
+add leader text;
+
+
+# supprimer des colonnes
+
+alter table facts
+drop column leader
+
+# creer une nouvelle table
+
+
+create table nom_db.nom_table(colonne1 datatype1 primary key,
+	coleonne2 datatype2,
+	colonne3 datatype3,
+	);
+
+
+create table factbook3.learders(
+id integer primary key,
+name text,
+country text,
+);
+
+
+
+#relations entre les tables
+
+insert into learders
+	values (1,"barack obama","usa");
+select country
+from learders
+where name="barack obama";
+
+select *
+from facts
+where name="usa";
+
+
+create table leaders2(
+id integer primary key,
+name text,
+country integer,
+worth float
+foreign key (country) references facts(id)
+
+);
+
+
+create table factbook3.state
+(
+id integer primary key,
+name text,
+area integer,
+country integer
+foreign key (country) references fact(id)
+
+
+);
+create table statess (
+
+id integer primary key,
+name text,
+area integer,
+country integer,
+foreign key (country) references facts(id)
+
+);
+# INNER JOIN
+
+select *
+from statess
+inner join facts
+on statess.country == facts.id;
+
+select *
+from landmarks
+inner join facts
+on landmarks.country == facts.id;
+
+
+# types de combinaison entre 2 tables
+#inverse les colonnes
+select *
+from facts
+inner join landmarks
+on landmarks.country == facts.id;
+
+
+LEFT OUTER JOIN 
+RIGHT OUTER JOIN
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
